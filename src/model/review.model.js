@@ -1,25 +1,15 @@
 const mongoose = require("mongoose"); // Erase if already required
 
 // Declare the Schema of the Mongo model
-var customerSchema = new mongoose.Schema(
+var reviewSchema = new mongoose.Schema(
   {
-    name: {
+    id: {
       type: String,
       required: true,
       unique: true,
       index: true,
     },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    mobile: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    password: {
+    description: {
       type: String,
       required: true,
     },
@@ -28,4 +18,4 @@ var customerSchema = new mongoose.Schema(
 );
 
 //Export the model
-module.exports = mongoose.model("customer", customerSchema);
+module.exports = mongoose.model("review", reviewSchema);
