@@ -58,7 +58,7 @@ const limit = rateLimit({
   message: "Too many requests",
 });
 
-app.use("/api", cors(corsOption), limit, require("./router/index.router"));
+// app.use("/api", cors(corsOption), limit, require("./router/index.router"));
 
 /* to handle the not found apis*/
 app.use("/", (req, res, next) => {
