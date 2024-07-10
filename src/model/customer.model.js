@@ -23,6 +23,13 @@ var customerSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    reviews: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "review",
+        required: true,
+      },
+    ],
   },
   { timestamps: true }
 );
