@@ -1,10 +1,12 @@
 const Customer = require("../model/customer.model");
+const hashPasswordUtil  = require("../utils/hashing.utils");
 
 // Controller functions
 
 // Create a new customer
 exports.createCustomer = async (req, res) => {
   try {
+    req.body.password = hashPasswordUtil(req.body.password)
     const newCustomer = await Customer.create(req.body);
     res.status(201).json(newCustomer);
   } catch (err) {

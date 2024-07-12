@@ -1,10 +1,12 @@
 const Technician = require("./technicianModel");
+const hashPasswordUtil = require("../utils/hashing.utils");
 
 // Controller functions
 
 // Create a new technician
 exports.createTechnician = async (req, res) => {
   try {
+    req.body.password = hashPasswordUtil(req.body.password);
     const newTechnician = await Technician.create(req.body);
     res.status(201).json(newTechnician);
   } catch (err) {
@@ -38,7 +40,11 @@ exports.getTechnicianById = async (req, res) => {
 // Update a technician by ID
 exports.updateTechnician = async (req, res) => {
   try {
-    const updatedTechnician = await Technician.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const updatedTechnician = await Technician.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
     if (!updatedTechnician) {
       return res.status(404).json({ message: "Technician not found" });
     }

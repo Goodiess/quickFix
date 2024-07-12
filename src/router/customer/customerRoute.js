@@ -11,8 +11,8 @@ const {
 const routes = new express.Router();
 
 routes.post("/customerSignup", createCustomer);
-routes.get("/getAllCustomers", getCustomerById);
-routes.get("/getCustomerById/:id", getCustomers);
+routes.get("/getAllCustomers", getCustomers);
+routes.get("/getCustomerById/:id", getCustomerById);
 routes.put("/updateProperties/:id", updateCustomer);
 routes.delete("/deleteCustomer/:id", deleteCustomer);
 
