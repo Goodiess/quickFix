@@ -1,12 +1,19 @@
 const express = require("express");
-const router = express.Router();
-const appointmentController = require("../controllers/appointmentController");
+const appointmentRoutes = express.Router();
+const appointmentController = require("../../controller/appointmentController");
+const {
+  createAppointment,
+  getAppointments,
+  getAppointmentById,
+  updateAppointment,
+  deleteAppointment,
+} = appointmentController;
 
 // Define routes for appointments
-router.post("/", appointmentController.createAppointment);
-router.get("/", appointmentController.getAppointments);
-router.get("/:id", appointmentController.getAppointmentById);
-router.put("/:id", appointmentController.updateAppointment);
-router.delete("/:id", appointmentController.deleteAppointment);
+appointmentRoutes.post("/scheduleAppointment", createAppointment);
+appointmentRoutes.get("/getAppointments", getAppointments);
+appointmentRoutes.get("/getAppointmentById/:id", getAppointmentById);
+appointmentRoutes.put("/getAppointmentById/:id", updateAppointment);
+appointmentRoutes.delete("/deleteAppointment/:id", deleteAppointment);
 
-module.exports = router;
+module.exports = appointmentRoutes;

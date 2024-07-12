@@ -1,4 +1,4 @@
-const Customer = require("./customerModel");
+const Customer = require("../model/customer.model");
 
 // Controller functions
 

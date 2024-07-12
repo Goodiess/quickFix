@@ -1,12 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const reviewController = require("../controllers/reviewController");
-
+import * as  reviewController from "../../controller/reviewController";
 // Define routes for reviews
-router.post("/", reviewController.createReview);
-router.get("/", reviewController.getReviews);
-router.get("/:id", reviewController.getReviewById);
-router.put("/:id", reviewController.updateReview);
-router.delete("/:id", reviewController.deleteReview);
+router.post("/createReview", reviewController.createReview);
+router.get("/getReviews", reviewController.getReviews);
+router.get("/getReviewById/:id", reviewController.getReviewById);
+router.put("/reviewController/:id", reviewController.updateReview);
+router.delete("/reviewController/:id", reviewController.deleteReview);
 
 module.exports = router;

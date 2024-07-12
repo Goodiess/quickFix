@@ -1,4 +1,4 @@
-const Appointment = require("./appointmentModel");
+const Appointment = require("../model/appointment.model");
 
 // Controller functions
 
