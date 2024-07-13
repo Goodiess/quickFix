@@ -12,6 +12,7 @@ const { failure } = require("./utils/common.utils");
 const { status_codes_msg } = require("./utils/constants.utils");
 const customer = require("./router/customer/customerRoute");
 const appointment = require("./router/appointment/appointmentRoute");
+const auth = require("./router/auth/auth.route");
 
 const { connectDatabase } = require("./config/db.config");
 const loggingMiddleware = require("./utils/logging.middleware");
@@ -37,6 +38,7 @@ app.use(helmet());
 app.use(loggingMiddleware)
 app.use("/api/customer", customer);
 app.use("/api/appointment", appointment);
+app.use("/api/auth", auth);
 
 const whitelist = ["http://localhost:3000/*", "*://192.168.*.*"];
 

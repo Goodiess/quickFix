@@ -1,4 +1,4 @@
-const Technician = require("./technicianModel");
+const Technician = require("../model/technician.model");
 const hashPasswordUtil = require("../utils/hashing.utils");
 
 // Controller functions
